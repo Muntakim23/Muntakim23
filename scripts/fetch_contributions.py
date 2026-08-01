@@ -21,6 +21,10 @@ for rect in soup.select("rect[data-date]"):
         "level": int(rect.get("data-level", 0))
     })
 
+import os
+
+os.makedirs("data", exist_ok=True)
+
 with open("data/contributions.json", "w") as f:
     json.dump(days, f, indent=2)
 
